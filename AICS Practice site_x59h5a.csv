@@ -1,0 +1,829 @@
+Plugin ID,CVE,CVSS v2.0 Base Score,Risk,Host,Protocol,Port,Name,Synopsis,Description,Solution,See Also,Plugin Output,STIG Severity,CVSS v3.0 Base Score,CVSS v2.0 Temporal Score,CVSS v3.0 Temporal Score,VPR Score,Risk Factor,BID,XREF,MSKB,Plugin Publication Date,Plugin Modification Date,Metasploit,Core Impact,CANVAS
+"10107","","","None","testphp.vulnweb.com","tcp","80","HTTP Server Type and Version","A web server is running on the remote host.","This plugin attempts to determine the type and the version of the
+  remote web server.","n/a","","The remote web server type is :
+
+nginx/1.19.0","","","","","","None","","IAVT:0001-T-0931","","2000/01/04","2020/10/30","","",""
+"10662","","","None","testphp.vulnweb.com","tcp","80","Web mirroring","Nessus can crawl the remote website.","This plugin makes a mirror of the remote website(s) and extracts the
+list of CGIs that are used by the remote host. 
+
+It is suggested that you change the number of pages to mirror in the
+'Options' section of the client.","n/a","","
+Webmirror performed 254 queries in 168s (1.0511 queries per second)
+
+The following CGIs have been discovered :
+
+
++ CGI : /search.php
+  Methods : POST
+  Argument : goButton
+   Value: go
+  Argument : searchFor
+  Argument : test
+   Value: query
+
+
++ CGI : /listproducts.php
+  Methods : GET
+  Argument : cat
+   Value: 4
+
+
++ CGI : /artists.php
+  Methods : GET
+  Argument : artist
+   Value: 3
+
+
++ CGI : /comment.php
+  Methods : GET
+  Argument : aid
+   Value: 3
+
+
++ CGI : /guestbook.php
+  Methods : POST
+  Argument : name
+   Value: anonymous user
+  Argument : submit
+   Value: add message
+  Argument : text
+
+
++ CGI : /AJAX/index.php/.php
+  Methods : GET
+  Argument : id
+
+
++ CGI : /userinfo.php
+  Methods : POST
+  Argument : pass
+  Argument : uname
+
+
++ CGI : /hpp/
+  Methods : GET
+  Argument : pp
+   Value: 12
+
+
++ CGI : /AJAX/index.php/.php/.php
+  Methods : GET
+  Argument : id
+
+
++ CGI : /AJAX/index.php/showxml.php/.php
+  Methods : GET
+  Argument : id
+
+
++ CGI : /AJAX/.php
+  Methods : GET
+  Argument : id
+
+
++ CGI : /secured/newuser.php
+  Methods : POST
+  Argument : signup
+   Value: signup
+  Argument : uaddress
+  Argument : ucc
+  Argument : uemail
+  Argument : upass
+  Argument : upass2
+  Argument : uphone
+  Argument : urname
+  Argument : uuname
+
+
++ CGI : /AJAX/index.php/.php/.php/.php
+  Methods : GET
+  Argument : id
+
+
++ CGI : /AJAX/index.php/.php/showxml.php/.php
+  Methods : GET
+  Argument : id
+
+
++ CGI : /AJAX/index.php/showxml.php/.php/.php
+  Methods : GET
+  Argument : id
+
+
++ CGI : /AJAX/index.php/showxml.php/showxml.php/.php
+  Methods : GET
+  Argument : id
+
+
++ CGI : /AJAX/index.php/.php/.php/.php/.php
+  Methods : GET
+  Argument : id
+
+
++ CGI : /AJAX/index.php/.php/.php/showxml.php/.php
+  Methods : GET
+  Argument : id
+
+
++ CGI : /AJAX/index.php/.php/showxml.php/.php/.php
+  Methods : GET
+  Argument : id
+
+
++ CGI : /AJAX/index.php/.php/showxml.php/showxml.php/.php
+  Methods : GET
+  Argument : id
+
+
++ CGI : /AJAX/index.php/showxml.php/.php/.php/.php
+  Methods : GET
+  Argument : id
+
+
++ CGI : /AJAX/index.php/showxml.php/.php/showxml.php/.php
+  Methods : GET
+  Argument : id
+
+
++ CGI : /AJAX/index.php/showxml.php/showxml.php/.php/.php
+  Methods : GET
+  Argument : id
+
+
++ CGI : /AJAX/index.php/showxml.php/showxml.php/showxml.php/.php
+  Methods : GET
+  Argument : id
+
+
++ CGI : /AJAX/index.php/.php/.php/.php/.php/.php
+  Methods : GET
+  Argument : id
+
+
++ CGI : /AJAX/index.php/.php/.php/.php/showxml.php/.php
+  Methods : GET
+  Argument : id
+
+
++ CGI : /AJAX/index.php/.php/.php/showxml.php/.php/.php
+  Methods : GET
+  Argument : id
+
+
++ CGI : /AJAX/index.php/.php/.php/showxml.php/showxml.php/.php
+  Methods : GET
+  Argument : id
+
+
++ CGI : /AJAX/index.php/.php/showxml.php/.php/.php/.php
+  Methods : GET
+  Argument : id
+
+
++ CGI : /AJAX/index.php/.php/showxml.php/.php/showxml.php/.php
+  Methods : GET
+  Argument : id
+
+Directory index found at /admin/
+Directory index found at /images/
+Directory index found at /Templates/
+Directory index found at /CVS/
+","","","","","","None","","","","2001/05/04","2023/09/25","","",""
+"11032","","","None","testphp.vulnweb.com","tcp","80","Web Server Directory Enumeration","It is possible to enumerate directories on the web server.","This plugin attempts to determine the presence of various common
+directories on the remote web server.  By sending a request for a
+directory, the web server response code indicates if it is a valid
+directory or not.","n/a","http://projects.webappsec.org/w/page/13246953/Predictable%20Resource%20Location","
+The following directories were discovered:
+/admin, /cgi-bin, /secured, /CVS, /Templates, /images
+
+While this is not, in and of itself, a bug, you should manually inspect 
+these directories to ensure that they are in compliance with company
+security standards
+","","","","","","None","","OWASP:OWASP-CM-006","","2002/06/26","2021/08/17","","",""
+"11219","","","None","testphp.vulnweb.com","tcp","80","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 80/tcp was found to be open","","","","","","None","","","","2009/02/04","2023/09/25","","",""
+"19506","","","None","testphp.vulnweb.com","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - The ping round trip time 
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - Whether the display of superseded patches is enabled
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 10.6.1
+Nessus build : 20021
+Plugin feed version : 202310241010
+Scanner edition used : Nessus Home
+Scanner OS : WINDOWS
+Scanner distribution : win-x86-64
+Scan type : Normal
+Scan name : AICS Practice site
+Scan policy used : Web Application Tests
+Scanner IP : 192.168.29.20
+Port scanner(s) : nessus_syn_scanner 
+Port range : default
+Ping RTT : 276.181 ms
+Thorough tests : no
+Experimental tests : no
+Plugin debugging enabled : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+Display superseded patches : yes (supersedence plugin launched)
+CGI scanning : enabled
+Web application tests : enabled
+Web app tests -  Test mode : single
+Web app tests -  Try all HTTP methods : no
+Web app tests -  Maximum run time : 5 minutes.
+Web app tests -  Stop at first flaw : CGI
+Max hosts : 30
+Max checks : 4
+Recv timeout : 5
+Backports : None
+Allow post-scan editing : Yes
+Nessus Plugin Signature Checking : Enabled
+Audit File Signature Checking : Disabled
+Scan Start Date : 2023/10/26 12:38 India Standard Time
+Scan duration : 1690 sec
+Scan for malware : no
+","","","","","","None","","","","2005/08/26","2023/07/31","","",""
+"26194","","2.6","Low","testphp.vulnweb.com","tcp","80","Web Server Transmits Cleartext Credentials","The remote web server might transmit credentials in cleartext.","The remote web server contains several HTML form fields containing
+an input of type 'password' which transmit their information to
+a remote web server in cleartext.
+
+An attacker eavesdropping the traffic between web browser and 
+server may obtain logins and passwords of valid users.","Make sure that every sensitive form transmits content over HTTPS.","","Page : /login.php
+Destination Page: /userinfo.php
+
+Page : /signup.php
+Destination Page: /secured/newuser.php
+
+","","","","","","Low","","CWE:522;CWE:523;CWE:718;CWE:724;CWE:928;CWE:930","","2007/09/28","2016/11/29","","",""
+"33817","","","None","testphp.vulnweb.com","tcp","80","CGI Generic Tests Load Estimation (all tests)","Load estimation for web application tests.","This script computes the maximum number of requests that would be done 
+by the generic web tests, depending on miscellaneous options. 
+It does not perform any test by itself.
+
+The results can be used to estimate the duration of these tests, or 
+the complexity of additional manual tests.
+
+Note that the script does not try to compute this duration based 
+on external factors such as the network and web servers loads.","n/a","","Here are the estimated number of requests in miscellaneous modes
+for one method only (GET or POST) :
+[Single / Some Pairs / All Pairs / Some Combinations / All Combinations]
+
+arbitrary command execution (time based) : S=258        SP=258       AP=678       SC=156       AC=7920     
+format string                            : S=86         SP=86        AP=226       SC=52        AC=2640     
+cross-site scripting (comprehensive test): S=172        SP=172       AP=452       SC=104       AC=5280     
+injectable parameter                     : S=86         SP=86        AP=226       SC=52        AC=2640     
+arbitrary command execution              : S=688        SP=688       AP=1808      SC=416       AC=21120    
+local file inclusion                     : S=43         SP=43        AP=113       SC=26        AC=1320     
+directory traversal                      : S=1075       SP=1075      AP=2825      SC=650       AC=33000    
+web code injection                       : S=43         SP=43        AP=113       SC=26        AC=1320     
+blind SQL injection (4 requests)         : S=172        SP=172       AP=452       SC=104       AC=5280     
+persistent XSS                           : S=172        SP=172       AP=452       SC=104       AC=5280     
+directory traversal (write access)       : S=86         SP=86        AP=226       SC=52        AC=2640     
+XML injection                            : S=43         SP=43        AP=113       SC=26        AC=1320     
+blind SQL injection                      : S=516        SP=516       AP=1356      SC=312       AC=15840    
+SQL injection                            : S=1032       SP=1032      AP=2712      SC=624       AC=31680    
+directory traversal (extended test)      : S=2193       SP=2193      AP=5763      SC=1326      AC=67320    
+SSI injection                            : S=129        SP=129       AP=339       SC=78        AC=3960     
+unseen parameters                        : S=1505       SP=1505      AP=3955      SC=910       AC=46200    
+SQL injection (2nd order)                : S=43         SP=43        AP=113       SC=26        AC=1320     
+
+All tests                                : S=8342       SP=8342      AP=21922     SC=5044      AC=256080   
+
+Here are the estimated number of requests in miscellaneous modes
+for both methods (GET and POST) :
+[Single / Some Pairs / All Pairs / Some Combinations / All Combinations]
+
+arbitrary command execution (time based) : S=516        SP=516       AP=1356      SC=312       AC=15840    
+format string                            : S=172        SP=172       AP=452       SC=104       AC=5280     
+cross-site scripting (comprehensive test): S=344        SP=344       AP=904       SC=208       AC=10560    
+injectable parameter                     : S=172        SP=172       AP=452       SC=104       AC=5280     
+arbitrary command execution              : S=1376       SP=1376      AP=3616      SC=832       AC=42240    
+local file inclusion                     : S=86         SP=86        AP=226       SC=52        AC=2640     
+directory traversal                      : S=2150       SP=2150      AP=5650      SC=1300      AC=66000    
+web code injection                       : S=86         SP=86        AP=226       SC=52        AC=2640     
+blind SQL injection (4 requests)         : S=344        SP=344       AP=904       SC=208       AC=10560    
+persistent XSS                           : S=344        SP=344       AP=904       SC=208       AC=10560    
+directory traversal (write access)       : S=172        SP=172       AP=452       SC=104       AC=5280     
+XML injection                            : S=86         SP=86        AP=226       SC=52        AC=2640     
+blind SQL injection                      : S=1032       SP=1032      AP=2712      SC=624       AC=31680    
+SQL injection                            : S=2064       SP=2064      AP=5424      SC=1248      AC=63360    
+directory traversal (extended test)      : S=4386       SP=4386      AP=11526     SC=2652      AC=134640   
+SSI injection                            : S=258        SP=258       AP=678       SC=156       AC=7920     
+unseen parameters                        : S=3010       SP=3010      AP=7910      SC=1820      AC=92400    
+SQL injection (2nd order)                : S=86         SP=86        AP=226       SC=52        AC=2640     
+
+All tests                                : S=16684      SP=16684     AP=43844     SC=10088     AC=512160   
+
+Your mode : single, GET or POST.
+Maximum number of requests : 8342
+","","","","","","None","","","","2009/10/26","2022/04/11","","",""
+"40406","","","None","testphp.vulnweb.com","tcp","80","CGI Generic Tests HTTP Errors","Nessus encountered errors while running its generic CGI attacks.","Nessus ran into trouble while running its generic CGI tests against
+the remote web server (for example, connection refused, timeout, etc). 
+When this happens, Nessus aborts the current test and switches to the
+next CGI script on the same port or to another web server.  Thus, test
+results may be incomplete.","Rescan with a longer network timeout or less parallelism for example,
+by changing the following options in the scan policy :
+
+  - Network -> Network Receive Timeout (check_read_timeout)
+
+  - Options -> Number of hosts in parallel (max_hosts)
+
+  - Options -> Number of checks in parallel (max_checks)","","
+Nessus encountered :
+
+  - 1 error involving arbitrary command execution (time based) checks :
+  - 33 errors involving SSI injection (on HTTP headers) checks :
+   . connecting to server: errno=6 (connection refused)
+  - 30 errors involving SQL injection (on HTTP headers) checks :
+   . connecting to server: errno=6 (connection refused)
+  - 30 errors involving SQL injection (on parameters names) checks :
+   . connecting to server: errno=6 (connection refused)
+  - 1 error involving blind SQL injection (time based) checks :
+  - 30 errors involving XSS (on HTTP headers) checks :
+   . connecting to server: errno=6 (connection refused)
+  - 30 errors involving XSS (on parameters names) checks :
+   . connecting to server: errno=6 (connection refused)
+  - 23 errors involving persistent XSS checks :
+","","","","","","None","","","","2009/07/28","2021/01/19","","",""
+"40773","","","None","testphp.vulnweb.com","tcp","80","Web Application Potentially Sensitive CGI Parameter Detection","An application was found that may use CGI parameters to control
+sensitive information.","According to their names, some CGI parameters may control sensitive
+data (e.g., ID, privileges, commands, prices, credit card data, etc.). 
+In the course of using an application, these variables may disclose
+sensitive data or be prone to tampering that could result in privilege
+escalation.  These parameters should be examined to determine what
+type of data is controlled and if it poses a security risk.
+
+** This plugin only reports information that may be useful for auditors
+** or pen-testers, not a real flaw.","Ensure sensitive data is not disclosed by CGI parameters.  In
+addition, do not use CGI parameters to control access to resources or
+privileges.","","
+Potentially sensitive parameters for CGI /AJAX/index.php/.php/.php :
+
+id : Potential horizontal or vertical privilege escalation
+
+Potentially sensitive parameters for CGI /AJAX/index.php/showxml.php/.php :
+
+id : Potential horizontal or vertical privilege escalation
+
+Potentially sensitive parameters for CGI /AJAX/.php :
+
+id : Potential horizontal or vertical privilege escalation
+
+Potentially sensitive parameters for CGI /AJAX/index.php/.php/.php/.php :
+
+id : Potential horizontal or vertical privilege escalation
+
+Potentially sensitive parameters for CGI /AJAX/index.php/.php/showxml.php/showxml.php/.php :
+
+id : Potential horizontal or vertical privilege escalation
+
+Potentially sensitive parameters for CGI /AJAX/index.php/showxml.php/.php/.php/.php :
+
+id : Potential horizontal or vertical privilege escalation
+
+Potentially sensitive parameters for CGI /AJAX/index.php/showxml.php/.php/showxml.php/.php :
+
+id : Potential horizontal or vertical privilege escalation
+
+Potentially sensitive parameters for CGI /AJAX/index.php/showxml.php/showxml.php/.php/.php :
+
+id : Potential horizontal or vertical privilege escalation
+
+Potentially sensitive parameters for CGI /AJAX/index.php/showxml.php/showxml.php/showxml.php/.php :
+
+id : Potential horizontal or vertical privilege escalation
+
+Potentially sensitive parameters for CGI /AJAX/index.php/.php/.php/.php/.php/.php :
+
+id : Potential horizontal or vertical privilege escalation
+
+Potentially sensitive parameters for CGI /AJAX/index.php/.php/showxml.php/.php/showxml.php/.php :
+
+id : Potential horizontal or vertical privilege escalation
+
+Potentially sensitive parameters for CGI /AJAX/index.php/.php/showxml.php/.php/.php/.php :
+
+id : Potential horizontal or vertical privilege escalation
+
+Potentially sensitive parameters for CGI /AJAX/index.php/.php/.php/showxml.php/showxml.php/.php :
+
+id : Potential horizontal or vertical privilege escalation
+
+Potentially sensitive parameters for CGI /AJAX/index.php/.php/.php/showxml.php/.php/.php :
+
+id : Potential horizontal or vertical privilege escalation
+
+Potentially sensitive parameters for CGI /AJAX/index.php/.php/.php/.php/showxml.php/.php :
+
+id : Potential horizontal or vertical privilege escalation
+
+Potentially sensitive parameters for CGI /AJAX/index.php/.php/showxml.php/.php/.php :
+
+id : Potential horizontal or vertical privilege escalation
+
+Potentially sensitive parameters for CGI /AJAX/index.php/.php/.php/showxml.php/.php :
+
+id : Potential horizontal or vertical privilege escalation
+
+Potentially sensitive parameters for CGI /AJAX/index.php/.php/.php/.php/.php :
+
+id : Potential horizontal or vertical privilege escalation
+
+Potentially sensitive parameters for CGI /AJAX/index.php/showxml.php/showxml.php/.php :
+
+id : Potential horizontal or vertical privilege escalation
+
+Potentially sensitive parameters for CGI /AJAX/index.php/showxml.php/.php/.php :
+
+id : Potential horizontal or vertical privilege escalation
+
+Potentially sensitive parameters for CGI /AJAX/index.php/.php/showxml.php/.php :
+
+id : Potential horizontal or vertical privilege escalation
+
+Potentially sensitive parameters for CGI /userinfo.php :
+
+pass : Possibly a clear or hashed password, vulnerable to sniffing or dictionary attack
+
+Potentially sensitive parameters for CGI /AJAX/index.php/.php :
+
+id : Potential horizontal or vertical privilege escalation
+
+","","","","","","None","","","","2009/08/25","2021/01/19","","",""
+"40984","","5.0","Medium","testphp.vulnweb.com","tcp","80","Browsable Web Directories","Some directories on the remote web server are browsable.","Multiple Nessus plugins identified directories on the web server
+that are browsable.","Make sure that browsable directories do not leak confidential
+information or give access to sensitive resources. Additionally, use
+access restrictions or disable directory indexing for any that do.","http://www.nessus.org/u?0a35179e","
+The following directories are browsable :
+
+http://testphp.vulnweb.com/CVS/
+http://testphp.vulnweb.com/Templates/
+http://testphp.vulnweb.com/admin/
+http://testphp.vulnweb.com/images/
+","","5.3","","","","Medium","","","","2009/09/15","2021/01/19","","",""
+"42057","","","Low","testphp.vulnweb.com","tcp","80","Web Server Allows Password Auto-Completion","The 'autocomplete' attribute is not disabled on password fields.","The remote web server contains at least one HTML form field that has
+an input of type 'password' where 'autocomplete' is not set to 'off'.
+
+While this does not represent a risk to this web server per se, it
+does mean that users who use the affected forms may have their
+credentials saved in their browsers, which could in turn lead to a
+loss of confidentiality if any of them use a shared host or if their
+machine is compromised at some point.","Add the attribute 'autocomplete=off' to these fields to prevent
+browsers from caching credentials.","","Page : /login.php
+Destination Page: /userinfo.php
+
+Page : /signup.php
+Destination Page: /secured/newuser.php
+
+","","","","","","Low","","","","2009/10/07","2023/07/17","","",""
+"48243","","","None","testphp.vulnweb.com","tcp","80","PHP Version Detection","It was possible to obtain the version number of the remote PHP
+installation.","Nessus was able to determine the version of PHP available on the
+remote web server.","n/a","","
+Nessus was able to identify the following PHP version information :
+
+  Version : 5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+  Source  : X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+","","","","","","None","","IAVT:0001-T-0936","","2010/08/04","2022/10/12","","",""
+"49704","","","None","testphp.vulnweb.com","tcp","80","External URLs","Links to external sites were gathered.","Nessus gathered HREF links to external sites by crawling the remote
+web server.","n/a","","
+7 external URLs were gathered on this web server : 
+URL...                                  - Seen on...
+
+http://blog.mindedsecurity.com/2009/05/client-side-http-parameter-pollution.html - /hpp/
+http://www.acunetix.com                 - /
+http://www.eclectasy.com/Fractal-Explorer/index.html - /
+https://www.acunetix.com/               - /
+https://www.acunetix.com/blog/articles/prevent-sql-injection-vulnerabilities-in-php-applications/ - /
+https://www.acunetix.com/vulnerability-scanner/ - /
+https://www.acunetix.com/vulnerability-scanner/php-security-scanner/ - /
+
+","","","","","","None","","","","2010/10/04","2011/08/19","","",""
+"49705","","","None","testphp.vulnweb.com","tcp","80","Web Server Harvested Email Addresses","Email addresses were harvested from the web server.","Nessus harvested HREF mailto: links and extracted email addresses by
+crawling the remote web server.","n/a","","
+
+The following email address has been gathered :
+
+
+- 'wvs@acunetix.com', referenced from :
+   /search.php
+   /listproducts.php
+   /index.php
+   /artists.php
+   /categories.php
+   /signup.php
+   /disclaimer.php
+   /
+   /Templates/main_dynamic_template.dwt.php
+   /cart.php
+   /guestbook.php
+   /login.php
+","","","","","","None","","","","2010/10/04","2018/05/24","","",""
+"50344","","","None","testphp.vulnweb.com","tcp","80","Missing or Permissive Content-Security-Policy frame-ancestors HTTP Response Header","The remote web server does not take steps to mitigate a class of web
+application vulnerabilities.","The remote web server in some responses sets a permissive
+Content-Security-Policy (CSP) frame-ancestors response header or does
+not set one at all.
+
+The CSP frame-ancestors header has been proposed by the W3C Web
+Application Security Working Group as a way to mitigate cross-site
+scripting and clickjacking attacks.","Set a non-permissive Content-Security-Policy frame-ancestors header
+for all requested resources.","http://www.nessus.org/u?55aa8f57
+http://www.nessus.org/u?07cc2a06
+https://content-security-policy.com/
+https://www.w3.org/TR/CSP2/","
+The following pages do not set a Content-Security-Policy frame-ancestors response header or set a permissive policy:
+
+  - http://testphp.vulnweb.com/
+  - http://testphp.vulnweb.com/AJAX/
+  - http://testphp.vulnweb.com/AJAX/index.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/.php/.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/.php/.php/.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/.php/.php/showxml.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/.php/showxml.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/.php/showxml.php/.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/.php/showxml.php/showxml.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/showxml.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/showxml.php/.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/showxml.php/.php/.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/showxml.php/.php/showxml.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/showxml.php/showxml.php
+  - http://testphp.vulnweb.com/AJAX/index.php/showxml.php
+  - http://testphp.vulnweb.com/AJAX/index.php/showxml.php/.php
+  - http://testphp.vulnweb.com/AJAX/index.php/showxml.php/.php/.php
+  - http://testphp.vulnweb.com/AJAX/index.php/showxml.php/.php/showxml.php
+  - http://testphp.vulnweb.com/AJAX/index.php/showxml.php/showxml.php
+  - http://testphp.vulnweb.com/AJAX/index.php/showxml.php/showxml.php/.php
+  - http://testphp.vulnweb.com/AJAX/index.php/showxml.php/showxml.php/showxml.php
+  - http://testphp.vulnweb.com/AJAX/showxml.php
+  - http://testphp.vulnweb.com/CVS/
+  - http://testphp.vulnweb.com/Mod_Rewrite_Shop/
+  - http://testphp.vulnweb.com/Mod_Rewrite_Shop/BuyProduct-1/
+  - http://testphp.vulnweb.com/Mod_Rewrite_Shop/BuyProduct-2/
+  - http://testphp.vulnweb.com/Mod_Rewrite_Shop/BuyProduct-3/
+  - http://testphp.vulnweb.com/Mod_Rewrite_Shop/Details/color-printer/3/
+  - http://testphp.vulnweb.com/Mod_Rewrite_Shop/Details/network-attached-storage-dlink/1/
+  - http://testphp.vulnweb.com/Mod_Rewrite_Shop/Details/web-camera-a4tech/2/
+  - http://testphp.vulnweb.com/Mod_Rewrite_Shop/RateProduct-1.html
+  - http://testphp.vulnweb.com/Mod_Rewrite_Shop/RateProduct-2.html
+  - http://testphp.vulnweb.com/Mod_Rewrite_Shop/RateProduct-3.html
+  - http://testphp.vulnweb.com/Templates/
+  - http://testphp.vulnweb.com/Templates/main_dynamic_template.dwt.php
+  - http://testphp.vulnweb.com/admin/
+  - http://testphp.vulnweb.com/artists.php
+  - http://testphp.vulnweb.com/cart.php
+  - http://testphp.vulnweb.com/categories.php
+  - http://testphp.vulnweb.com/disclaimer.php
+  - http://testphp.vulnweb.com/guestbook.php
+  - http://testphp.vulnweb.com/hpp/
+  - http://testphp.vulnweb.com/images/
+  - http://testphp.vulnweb.com/index.php
+  - http://testphp.vulnweb.com/listproducts.php
+  - http://testphp.vulnweb.com/login.php
+  - http://testphp.vulnweb.com/search.php
+  - http://testphp.vulnweb.com/secured/
+  - http://testphp.vulnweb.com/secured/newuser.php
+  - http://testphp.vulnweb.com/signup.php
+","","","","","","None","","","","2010/10/26","2021/01/19","","",""
+"50345","","","None","testphp.vulnweb.com","tcp","80","Missing or Permissive X-Frame-Options HTTP Response Header","The remote web server does not take steps to mitigate a class of web
+application vulnerabilities.","The remote web server in some responses sets a permissive
+X-Frame-Options response header or does not set one at all.
+
+The X-Frame-Options header has been proposed by Microsoft as a way to
+mitigate clickjacking attacks and is currently supported by all major
+browser vendors","Set a properly configured X-Frame-Options header for all requested
+resources.","https://en.wikipedia.org/wiki/Clickjacking
+http://www.nessus.org/u?399b1f56","
+The following pages do not set a X-Frame-Options response header or set a permissive policy:
+
+  - http://testphp.vulnweb.com/
+  - http://testphp.vulnweb.com/AJAX/
+  - http://testphp.vulnweb.com/AJAX/index.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/.php/.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/.php/.php/.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/.php/.php/showxml.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/.php/showxml.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/.php/showxml.php/.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/.php/showxml.php/showxml.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/showxml.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/showxml.php/.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/showxml.php/.php/.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/showxml.php/.php/showxml.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/showxml.php/showxml.php
+  - http://testphp.vulnweb.com/AJAX/index.php/showxml.php
+  - http://testphp.vulnweb.com/AJAX/index.php/showxml.php/.php
+  - http://testphp.vulnweb.com/AJAX/index.php/showxml.php/.php/.php
+  - http://testphp.vulnweb.com/AJAX/index.php/showxml.php/.php/showxml.php
+  - http://testphp.vulnweb.com/AJAX/index.php/showxml.php/showxml.php
+  - http://testphp.vulnweb.com/AJAX/index.php/showxml.php/showxml.php/.php
+  - http://testphp.vulnweb.com/AJAX/index.php/showxml.php/showxml.php/showxml.php
+  - http://testphp.vulnweb.com/AJAX/showxml.php
+  - http://testphp.vulnweb.com/CVS/
+  - http://testphp.vulnweb.com/Mod_Rewrite_Shop/
+  - http://testphp.vulnweb.com/Mod_Rewrite_Shop/BuyProduct-1/
+  - http://testphp.vulnweb.com/Mod_Rewrite_Shop/BuyProduct-2/
+  - http://testphp.vulnweb.com/Mod_Rewrite_Shop/BuyProduct-3/
+  - http://testphp.vulnweb.com/Mod_Rewrite_Shop/Details/color-printer/3/
+  - http://testphp.vulnweb.com/Mod_Rewrite_Shop/Details/network-attached-storage-dlink/1/
+  - http://testphp.vulnweb.com/Mod_Rewrite_Shop/Details/web-camera-a4tech/2/
+  - http://testphp.vulnweb.com/Mod_Rewrite_Shop/RateProduct-1.html
+  - http://testphp.vulnweb.com/Mod_Rewrite_Shop/RateProduct-2.html
+  - http://testphp.vulnweb.com/Mod_Rewrite_Shop/RateProduct-3.html
+  - http://testphp.vulnweb.com/Templates/
+  - http://testphp.vulnweb.com/Templates/main_dynamic_template.dwt.php
+  - http://testphp.vulnweb.com/admin/
+  - http://testphp.vulnweb.com/artists.php
+  - http://testphp.vulnweb.com/cart.php
+  - http://testphp.vulnweb.com/categories.php
+  - http://testphp.vulnweb.com/disclaimer.php
+  - http://testphp.vulnweb.com/guestbook.php
+  - http://testphp.vulnweb.com/hpp/
+  - http://testphp.vulnweb.com/images/
+  - http://testphp.vulnweb.com/index.php
+  - http://testphp.vulnweb.com/listproducts.php
+  - http://testphp.vulnweb.com/login.php
+  - http://testphp.vulnweb.com/search.php
+  - http://testphp.vulnweb.com/secured/
+  - http://testphp.vulnweb.com/secured/newuser.php
+  - http://testphp.vulnweb.com/signup.php
+","","","","","","None","","","","2010/10/26","2021/01/19","","",""
+"58987","","10.0","Critical","testphp.vulnweb.com","tcp","80","PHP Unsupported Version Detection","The remote host contains an unsupported version of a web application
+scripting language.","According to its version, the installation of PHP on the remote host
+is no longer supported.
+
+Lack of support implies that no new security patches for the product
+will be released by the vendor. As a result, it is likely to contain
+security vulnerabilities.","Upgrade to a version of PHP that is currently supported.","http://php.net/eol.php
+https://wiki.php.net/rfc/releaseprocess","
+  Source              : X-Powered-By: PHP/5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+  Installed version   : 5.6.40-38+ubuntu20.04.1+deb.sury.org+1
+  End of support date : 2018/12/31
+  Announcement        : http://php.net/supported-versions.php
+  Supported versions  : 8.0.x / 8.1.x
+","","10.0","","","","Critical","","IAVA:0001-A-0581","","2012/05/04","2022/12/07","","",""
+"85582","","4.3","Medium","testphp.vulnweb.com","tcp","80","Web Application Potentially Vulnerable to Clickjacking","The remote web server may fail to mitigate a class of web application
+vulnerabilities.","The remote web server does not set an X-Frame-Options response header
+or a Content-Security-Policy 'frame-ancestors' response header in all
+content responses. This could potentially expose the site to a
+clickjacking or UI redress attack, in which an attacker can trick a
+user into clicking an area of the vulnerable page that is different
+than what the user perceives the page to be. This can result in a user
+performing fraudulent or malicious transactions.
+
+X-Frame-Options has been proposed by Microsoft as a way to mitigate
+clickjacking attacks and is currently supported by all major browser
+vendors.
+
+Content-Security-Policy (CSP) has been proposed by the W3C Web
+Application Security Working Group, with increasing support among
+all major browser vendors, as a way to mitigate clickjacking and other
+attacks. The 'frame-ancestors' policy directive restricts which
+sources can embed the protected resource.
+
+Note that while the X-Frame-Options and Content-Security-Policy
+response headers are not the only mitigations for clickjacking, they
+are currently the most reliable methods that can be detected through
+automation. Therefore, this plugin may produce false positives if
+other mitigation strategies (e.g., frame-busting JavaScript) are
+deployed or if the page does not perform any security-sensitive
+transactions.","Return the X-Frame-Options or Content-Security-Policy (with the
+'frame-ancestors' directive) HTTP header with the page's response.
+This prevents the page's content from being rendered by another site
+when using the frame or iframe HTML tags.","http://www.nessus.org/u?399b1f56
+https://www.owasp.org/index.php/Clickjacking_Defense_Cheat_Sheet
+https://en.wikipedia.org/wiki/Clickjacking","
+The following pages do not use a clickjacking mitigation response header and contain a clickable event :
+
+  - http://testphp.vulnweb.com/
+  - http://testphp.vulnweb.com/AJAX/
+  - http://testphp.vulnweb.com/AJAX/index.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/.php/.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/.php/.php/.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/.php/.php/showxml.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/.php/showxml.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/.php/showxml.php/.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/.php/showxml.php/showxml.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/showxml.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/showxml.php/.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/showxml.php/.php/.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/showxml.php/.php/showxml.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/showxml.php/showxml.php
+  - http://testphp.vulnweb.com/AJAX/index.php/showxml.php
+  - http://testphp.vulnweb.com/AJAX/index.php/showxml.php/.php
+  - http://testphp.vulnweb.com/AJAX/index.php/showxml.php/.php/.php
+  - http://testphp.vulnweb.com/AJAX/index.php/showxml.php/.php/showxml.php
+  - http://testphp.vulnweb.com/AJAX/index.php/showxml.php/showxml.php
+  - http://testphp.vulnweb.com/AJAX/index.php/showxml.php/showxml.php/.php
+  - http://testphp.vulnweb.com/AJAX/index.php/showxml.php/showxml.php/showxml.php
+  - http://testphp.vulnweb.com/Templates/main_dynamic_template.dwt.php
+  - http://testphp.vulnweb.com/artists.php
+  - http://testphp.vulnweb.com/cart.php
+  - http://testphp.vulnweb.com/categories.php
+  - http://testphp.vulnweb.com/disclaimer.php
+  - http://testphp.vulnweb.com/guestbook.php
+  - http://testphp.vulnweb.com/index.php
+  - http://testphp.vulnweb.com/listproducts.php
+  - http://testphp.vulnweb.com/login.php
+  - http://testphp.vulnweb.com/search.php
+  - http://testphp.vulnweb.com/signup.php
+","","","","","","Medium","","CWE:693","","2015/08/22","2017/05/16","","",""
+"91815","","","None","testphp.vulnweb.com","tcp","80","Web Application Sitemap","The remote web server hosts linkable content that can be crawled by
+Nessus.","The remote web server contains linkable content that can be used to
+gather information about a target.","n/a","http://www.nessus.org/u?5496c8d9","
+The following sitemap was created from crawling linkable content on the target host :
+
+  - http://testphp.vulnweb.com/
+  - http://testphp.vulnweb.com/AJAX/
+  - http://testphp.vulnweb.com/AJAX/index.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/.php/.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/.php/.php/.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/.php/.php/showxml.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/.php/showxml.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/.php/showxml.php/.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/.php/showxml.php/showxml.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/showxml.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/showxml.php/.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/showxml.php/.php/.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/showxml.php/.php/showxml.php
+  - http://testphp.vulnweb.com/AJAX/index.php/.php/showxml.php/showxml.php
+  - http://testphp.vulnweb.com/AJAX/index.php/showxml.php
+  - http://testphp.vulnweb.com/AJAX/index.php/showxml.php/.php
+  - http://testphp.vulnweb.com/AJAX/index.php/showxml.php/.php/.php
+  - http://testphp.vulnweb.com/AJAX/index.php/showxml.php/.php/showxml.php
+  - http://testphp.vulnweb.com/AJAX/index.php/showxml.php/showxml.php
+  - http://testphp.vulnweb.com/AJAX/index.php/showxml.php/showxml.php/.php
+  - http://testphp.vulnweb.com/AJAX/index.php/showxml.php/showxml.php/showxml.php
+  - http://testphp.vulnweb.com/AJAX/showxml.php
+  - http://testphp.vulnweb.com/AJAX/styles.css
+  - http://testphp.vulnweb.com/CVS/
+  - http://testphp.vulnweb.com/CVS/Entries
+  - http://testphp.vulnweb.com/CVS/Entries.Log
+  - http://testphp.vulnweb.com/CVS/Repository
+  - http://testphp.vulnweb.com/CVS/Root
+  - http://testphp.vulnweb.com/Mod_Rewrite_Shop/
+  - http://testphp.vulnweb.com/Mod_Rewrite_Shop/BuyProduct-1/
+  - http://testphp.vulnweb.com/Mod_Rewrite_Shop/BuyProduct-2/
+  - http://testphp.vulnweb.com/Mod_Rewrite_Shop/BuyProduct-3/
+  - http://testphp.vulnweb.com/Mod_Rewrite_Shop/Details/color-printer/3/
+  - http://testphp.vulnweb.com/Mod_Rewrite_Shop/Details/network-attached-storage-dlink/1/
+  - http://testphp.vulnweb.com/Mod_Rewrite_Shop/Details/web-camera-a4tech/2/
+  - http://testphp.vulnweb.com/Mod_Rewrite_Shop/RateProduct-1.html
+  - http://testphp.vulnweb.com/Mod_Rewrite_Shop/RateProduct-2.html
+  - http://testphp.vulnweb.com/Mod_Rewrite_Shop/RateProduct-3.html
+  - http://testphp.vulnweb.com/Templates/
+  - http://testphp.vulnweb.com/Templates/main_dynamic_template.dwt.php
+  - http://testphp.vulnweb.com/admin/
+  - http://testphp.vulnweb.com/admin/create.sql
+  - http://testphp.vulnweb.com/artists.php
+  - http://testphp.vulnweb.com/cart.php
+  - http://testphp.vulnweb.com/categories.php
+  - http://testphp.vulnweb.com/disclaimer.php
+  - http://testphp.vulnweb.com/guestbook.php
+  - http://testphp.vulnweb.com/hpp/
+  - http://testphp.vulnweb.com/images/
+  - http://testphp.vulnweb.com/images/logo.gif
+  - http://testphp.vulnweb.com/images/remark.gif
+  - http://testphp.vulnweb.com/index.php
+  - http://testphp.vulnweb.com/listproducts.php
+  - http://testphp.vulnweb.com/login.php
+  - http://testphp.vulnweb.com/search.php
+  - http://testphp.vulnweb.com/secured/
+  - http://testphp.vulnweb.com/secured/newuser.php
+  - http://testphp.vulnweb.com/secured/style.css
+  - http://testphp.vulnweb.com/signup.php
+  - http://testphp.vulnweb.com/style.css
+
+Attached is a copy of the sitemap file.
+","","","","","","None","","","","2016/06/24","2016/06/24","","",""
+"106375","","","None","testphp.vulnweb.com","tcp","80","nginx HTTP Server Detection","The nginx HTTP server was detected on the remote host.","Nessus was able to detect the nginx HTTP server by looking at
+the HTTP banner on the remote host.","n/a","https://nginx.org/","
+  URL     : http://testphp.vulnweb.com/
+  Version : 1.19.0
+  source  : Server: nginx/1.19.0
+","","","","","","None","","IAVT:0001-T-0677","","2018/01/26","2023/05/24","","",""
